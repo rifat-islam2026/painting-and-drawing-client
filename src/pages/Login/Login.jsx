@@ -1,9 +1,12 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 
 function Login() {
     const { signInUser } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState(null);
+    const navigate = useNavigate();
 
     const handelSignInUser = e => {
         e.preventDefault();
@@ -12,13 +15,26 @@ function Login() {
         const password = form.password.value;
         // console.log(name, email, photo, password);
 
+        // reset error
+        setLoginError('');
+
         // signIn user 
         signInUser(email, password)
             .then(result => {
                 console.log(result.user)
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login Successfully.",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                form.reset();
+                navigate('/')
             })
             .catch(error => {
                 console.log(error.message)
+                setLoginError(error.message);
             })
 
     }
@@ -27,9 +43,12 @@ function Login() {
           <div className="min-h-screen">
               <div className="">
                   <div className="text-center">
-                      <h1 className="text-5xl font-bold mb-5">Login now!</h1>
+                      <h1 className="text-5xl font-bold my-5">Login now!</h1>
                   </div>
                   <div className="w-2/3 mx-auto border p-5 shadow-xl my-5">
+                      {loginError &&
+                          <p className='my-5 p-2 bg-red-200 '>{loginError}</p>
+                      }
                       <form onSubmit={handelSignInUser}>
                           <div className="form-control">
                               <label className="label">

@@ -12,11 +12,11 @@ function Header() {
     }
     const links = <>
     <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/craftItems"> All Art & craft Items</NavLink></li>
+        <li><NavLink to="/myAllCraftItems"> All Art & craft Items</NavLink></li>
         <li><NavLink to="/addItems">Add Craft Item</NavLink></li>
         <li><NavLink to="/myCraftItems">My Art & Craft List</NavLink></li>
         <li><NavLink to="/login">Login</NavLink></li>
-        <li><NavLink to="/register">Register</NavLink></li>
+        {/* <li><NavLink to="/register">Register</NavLink></li> */}
     </>
 
   return (
