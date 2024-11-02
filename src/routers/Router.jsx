@@ -7,6 +7,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import MyAllCraftItem from "../pages/MyAllCraftItem/MyAllCraftItem";
 import Register from "../pages/Register/Register";
+import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import PrivateRoute from "../routers/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element:<Home/>
+                element: <Home />,
+                 loader: () => fetch(`http://localhost:5000/craftItems`)
             },
             {
                 path: "/login",
@@ -32,8 +34,13 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myAllCraftItems",
-                element: <MyAllCraftItem />,
-                loader: () => fetch(`http://localhost:5000/product`)
+                element: <PrivateRoute><MyAllCraftItem /></PrivateRoute>,
+                loader: () => fetch(`http://localhost:5000/craftItems`)
+            },
+            {
+                path: "/craftItems/:id",
+                element: <PrivateRoute><ViewDetails /></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/craftItems/${params.id}`)
             }
         ]
     },

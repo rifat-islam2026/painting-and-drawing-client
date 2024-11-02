@@ -8,18 +8,19 @@ function AddItems() {
   const handelAddItems = e => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
-    const subcategory = form.subcategory.value;
-    const description = form.description.value;
+    const item_name = form.item_name.value;
+    const subcategory_name = form.subcategory_name.value;
+    const short_description = form.short_description.value;
     const price = form.price.value;
     const rating = form.rating.value;
-    const processing = form.processing.value;
+    const processing_time = form.processing_time.value;
+    const image_url = form.image_url.value;
     const customization = form.customization.value;
     const userName = form.userName.value;
     const userEmail = form.userEmail.value;
-    const items = { name, subcategory, description, price, rating, processing, customization,userName,userEmail };
+    const items = { item_name, subcategory_name, short_description, price, rating, processing_time, image_url, customization,userName,userEmail };
     // console.log(items)
-    fetch('http://localhost:5000/product', {
+    fetch('http://localhost:5000/craftItems', {
       method: "POST",
       headers: {
         'content-type':'application/json'
@@ -52,7 +53,7 @@ function AddItems() {
               <span className="label-text">Item Name</span>
             </label>
             <input
-              name="name"
+              name="item_name"
               type="text"
               placeholder="Item Name"
               className="input input-bordered "
@@ -63,7 +64,7 @@ function AddItems() {
               <span className="label-text">Subcategory Name</span>
             </label>
             <input
-              name="subcategory"
+              name="subcategory_name"
               type="text"
               placeholder="Subcategory Name"
               className="input input-bordered"
@@ -76,7 +77,7 @@ function AddItems() {
               <span className="label-text">Short Description</span>
             </label>
             <input
-              name="description"
+              name="short_description"
               type="text"
               placeholder="Short Description"
               className="input input-bordered "
@@ -111,12 +112,23 @@ function AddItems() {
               <span className="label-text">Processing Time</span>
             </label>
             <input
-              name="processing"
+              name="processing_time"
               type="text"
               placeholder="Processing Time"
               className="input input-bordered "
               required />
           </div>
+        </div>
+        <div className="form-control mb-3">
+          <label className="label">
+            <span className="label-text">Image Url</span>
+          </label>
+          <input
+            name="image_url"
+            type="text"
+            placeholder="Image Url"
+            className="input border input-bordered "
+            required />
         </div>
         <div className="md:flex gap-3">
           <div className="form-control md:w-1/2 mb-3">
@@ -150,7 +162,7 @@ function AddItems() {
             <input type="radio" name="customization" className="radio radio-accent" value='No' />
             <label>No</label>
           </div>
-        </div>
+        </div>   
         <input type="submit" value="Add items" className="btn btn-info w-full" />
       </form>
     </div>

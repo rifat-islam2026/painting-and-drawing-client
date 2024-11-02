@@ -1,8 +1,22 @@
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import CraftCard from "../CraftCard/CraftCard";
 
 function Home() {
+  const craftItems = useLoaderData();
+  // console.log(craftItems)
+  const [dataLength, setDataLength] = useState(6);
+
   return (
     <div>
-      <h1>this is home!!</h1>
+
+      {/* craft items section  */}
+      <h1 className="text-4xl font-bold py-7 md:px-0 px-5">Craft Items Here</h1>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5 md:px-0 px-5 mb-10">
+        {
+          craftItems.slice(0,dataLength).map(craftItem => <CraftCard key={craftItem._id} craftItem={craftItem} />)
+        }
+      </div>
     </div>
   )
 }
