@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Banner from "../Banner/Banner";
 import CraftCard from "../CraftCard/CraftCard";
 
 function Home() {
@@ -9,7 +10,9 @@ function Home() {
 
   return (
     <div>
-
+      {/* Banner section */}
+      <Banner />
+      
       {/* craft items section  */}
       <h1 className="text-4xl font-bold py-7 md:px-0 px-5">Craft Items Here</h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5 md:px-0 px-5 mb-10">
@@ -17,6 +20,7 @@ function Home() {
           craftItems.slice(0,dataLength).map(craftItem => <CraftCard key={craftItem._id} craftItem={craftItem} />)
         }
       </div>
+      
     </div>
   )
 }
