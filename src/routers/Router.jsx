@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 import Root from "../layout/Root";
 import AddItems from "../pages/AddItems/AddItems";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import MyAllCraftItem from "../pages/MyAllCraftItem/MyAllCraftItem";
@@ -14,10 +15,11 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
+        errorElement:<ErrorPage/>,
         children: [
             {
                 path: "/",
-                element: <Home />,
+                element: <Home />, 
                  loader: () => fetch(`http://localhost:5000/craftItems`)
             },
             {

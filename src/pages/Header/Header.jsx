@@ -15,8 +15,6 @@ function Header() {
         <li><NavLink to="/myAllCraftItems"> All Art & craft Items</NavLink></li>
         <li><NavLink to="/addItems">Add Craft Item</NavLink></li>
         <li><NavLink to="/myCraftItems">My Art & Craft List</NavLink></li>
-        <li><NavLink to="/login">Login</NavLink></li>
-        {/* <li><NavLink to="/register">Register</NavLink></li> */}
     </>
 
   return (
@@ -40,7 +38,7 @@ function Header() {
                       </div>
                       <ul
                           tabIndex={0}
-                          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                          className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-50">
                          {links}
                       </ul>
                   </div>
@@ -52,18 +50,36 @@ function Header() {
                   </ul>
               </div>
               <div className="navbar-end">
-                  {user ?
-                      <Link to="/login">
-                          <button
-                              onClick={handelSignOut}
-                              className="btn btn-warning"
-                          >SignOut</button> 
-                      </Link> :
+                  {!user && 
                       <Link to="/login">
                           <button className="btn btn-info">Login</button>
                       </Link>              
                   }
-              </div>
+                  {
+                      user && 
+                      <div className="dropdown dropdown-end z-50">
+                          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                              <div className="w-10 rounded-full">
+                                  <img
+                                      alt="User Profile "
+                                          src={`${user.photoURL}`} />
+                              </div>
+                          </div>
+                          <ul
+                              tabIndex={0}
+                              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                              <li>
+                                  <Link to="/profile" className="justify-between">
+                                      Profile
+                                  </Link>
+                              </li>
+                                  <li className='mt-2' onClick={handelSignOut}>
+                                      <button className='bg-gray-200 block text-center hover:bg-warning'>Logout</button>
+                                  </li>
+                          </ul>
+                      </div>
+                  }                
+           </div>
           </div>
     </div>
   )
