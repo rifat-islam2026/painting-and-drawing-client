@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 function ViewDetails() {
     const craftItem = useLoaderData();
-    const { _id, item_name, subcategory_name, short_description, price, rating, processing_time, image_url, customization, userName, userEmail } = craftItem;
+    const { _id, item_name, category, subcategory_name, short_description, price, rating, processing_time, image_url, customization, user_name, user_email } = craftItem;
     console.log(craftItem)
   return (
     <div>
@@ -12,15 +12,16 @@ function ViewDetails() {
                   <img
                       src={image_url} />
                   <div className="card-body">
-                      <h2 className="card-title">{item_name}</h2>
+                      <h2 className="card-title font-bold">{category}</h2>
+                      <h3 className="text-sm font-semibold">{item_name}</h3>
                       <p className="font-bold">{subcategory_name}</p>
                       <p>{short_description}</p>
                       <p className="font-bold">$ {price}</p>
                       <p>{rating}</p>
                       <p>Processing Time: {processing_time}</p>
                       <p>Customization: {customization}</p>
-                      <p>User name: {userName}</p>
-                      <p>User Email: {userEmail}</p>
+                      <p>User name: {user_name}</p>
+                      <p>User Email: {user_email}</p>
 
                   </div>
               </div>

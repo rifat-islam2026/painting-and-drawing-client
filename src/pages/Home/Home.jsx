@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import CraftCard from "../CraftCard/CraftCard";
 import Slider from "../Slider/Slider";
+import SubCategory from "../SubCategory/SubCategory";
 
 function Home() {
   const craftItems = useLoaderData();
@@ -20,7 +21,8 @@ function Home() {
           craftItems.slice(0,dataLength).map(craftItem => <CraftCard key={craftItem._id} craftItem={craftItem} />)
         }
       </div>
-      
+      {/* subcategory section */}
+      <SubCategory/>
     </div>
   )
 }
