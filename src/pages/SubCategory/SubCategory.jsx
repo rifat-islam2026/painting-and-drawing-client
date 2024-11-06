@@ -5,7 +5,7 @@ import CategoryCard from '../CategoryCard/CategoryCard';
 
 function SubCategory() {
     const craftItems = useLoaderData();
-    console.log(craftItems)
+    // console.log(craftItems)
   return (
       <div className='py-7'>
           <Tabs>

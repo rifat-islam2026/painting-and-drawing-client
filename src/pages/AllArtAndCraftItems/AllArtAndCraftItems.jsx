@@ -1,12 +1,11 @@
 import { useContext } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const AllArtAndCraftItems = () => {
   const allCraftItems = useLoaderData();
-    const { user } = useContext(AuthContext);
-    const navigate = useNavigate();
-  console.log(allCraftItems);
+    const { user } = useContext(AuthContext) || {};
+  // console.log(allCraftItems);
 
   return (
     <section className="container px-4 mx-auto p-12">
@@ -33,15 +32,6 @@ const AllArtAndCraftItems = () => {
                         <span>Item Name</span>
                       </div>
                     </th>
-                    <th
-                      scope="col"
-                      className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
-                    >
-                      <div className="flex items-center gap-x-3">
-                        <span>@Email</span>
-                      </div>
-                    </th>
-
                     <th
                       scope="col"
                       className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
@@ -78,19 +68,14 @@ const AllArtAndCraftItems = () => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 ">
                   {allCraftItems.map((item) => (
-                      <tr onClick={() => navigate(`/craftItems/${item._id}`)}
+                      <tr
                           key={item._id}
                           className="hover:bg-base-200">
                       <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
                         {item.item_name}
                       </td>
-                      <td className="px-4 py-4 text-gray-500  whitespace-nowrap flex ite gap-1">
-                        <small>{`${user?.email}`}</small>
-                        {/* <img src={`${user?.photoUrl}`} className="w-10 rounded-badge" /> */}
-                      </td>
-
                       <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
-                        {item.subcategory_Name}
+                        {item.subcategory_name}
                       </td>
 
                       <td
