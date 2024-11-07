@@ -1,13 +1,43 @@
-import { useContext } from "react";
+import { useState } from "react";
 import { FaEdit, FaEye } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { Link, useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AllArtAndCraftItems = () => {
-  const allCraftItems = useLoaderData();
-  const { user } = useContext(AuthContext) || {};
-  // console.log(allCraftItems);
+  const loadedItems = useLoaderData();
+  const [allCraftItems, setAllCraftItems] = useState(loadedItems);
+  const handelDelete = id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/craftItems/${id}`, {
+          method: "DELETE"
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+              const remaining = allCraftItems.filter(i=>i._id !== id);
+              setAllCraftItems(remaining);
+            }
+          })      
+      }
+    });
+    
+  }
 
   return (
     <section className="container px-4 mx-auto p-12">
@@ -118,9 +148,9 @@ const AllArtAndCraftItems = () => {
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
-                          <button className="text-gray-500 transition-colors duration-200 text-base hover:text-red-500 focus:outline-none">
+                          <Link onClick={()=>handelDelete(item._id)} className="text-gray-500 transition-colors duration-200 text-base hover:text-red-500 focus:outline-none">
                             <RiDeleteBinLine />
-                          </button>
+                          </Link>
 
                           <Link to={`/update/${item._id}`} className="text-gray-500 transition-colors duration-200 text-base hover:text-yellow-500 focus:outline-none">             
                             <FaEdit />
