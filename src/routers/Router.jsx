@@ -10,6 +10,7 @@ import Login from "../pages/Login/Login";
 import MyAllCraftItem from "../pages/MyAllCraftItem/MyAllCraftItem";
 import Profile from "../pages/Profile/Profile";
 import Register from "../pages/Register/Register";
+import UpdateItem from "../pages/UpdateItem/UpdateItem";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import PrivateRoute from "../routers/PrivateRoute";
 
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
                 path: "/allArtAndCraftItems",
                 element: <AllArtAndCraftItems />,
                 loader: () => fetch(`http://localhost:5000/craftItems`)
+            },
+            {
+                path: "/update/:id",
+                element: <UpdateItem />,
+                loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
             }
             
         ]
