@@ -1,43 +1,10 @@
 import { useState } from "react";
-import { FaEdit, FaEye } from "react-icons/fa";
-import { RiDeleteBinLine } from "react-icons/ri";
+import { FaEye } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
-import Swal from "sweetalert2";
 
 const AllArtAndCraftItems = () => {
   const loadedItems = useLoaderData();
   const [allCraftItems, setAllCraftItems] = useState(loadedItems);
-  const handelDelete = id => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-      
-      if (result.isConfirmed) {
-        fetch(`http://localhost:5000/craftItems/${id}`, {
-          method: "DELETE"
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.deletedCount > 0) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success"
-              });
-              const remaining = allCraftItems.filter(i=>i._id !== id);
-              setAllCraftItems(remaining);
-            }
-          })      
-      }
-    });
-    
-  }
 
   return (
     <section className="container px-4 mx-auto p-12">
@@ -144,20 +111,12 @@ const AllArtAndCraftItems = () => {
                         </div>
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
-                        {item.price}
+                       $ {item.price}
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
-                          <Link onClick={()=>handelDelete(item._id)} className="text-gray-500 transition-colors duration-200 text-base hover:text-red-500 focus:outline-none">
-                            <RiDeleteBinLine />
-                          </Link>
-
-                          <Link to={`/update/${item._id}`} className="text-gray-500 transition-colors duration-200 text-base hover:text-yellow-500 focus:outline-none">             
-                            <FaEdit />
-                          </Link>
-
-                          <Link to={`/craftItems/${item._id}`} className="text-gray-500 transition-colors duration-200 text-base hover:text-green-500 focus:outline-none">             
-                            <FaEye />
+                          <Link to={`/craftItems/${item._id}`} className="text-white transition-colors duration-200 text-base hover:text-green-500 focus:outline-none">             
+                            <span className="flex items-center gap-2 bg-black rounded-full px-2">View <FaEye /></span>
                           </Link>
                         </div>
                       </td>
