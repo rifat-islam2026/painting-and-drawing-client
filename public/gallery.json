@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Urban Harmony",
+    "img_url": "https://i.ibb.co.com/WkVFgz8/9364229-4140992.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Golden Sunrise",
+    "img_url": "https://i.ibb.co.com/MkF1fFm/20177126-6232871.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Echoes of Silence",
+    "img_url": "https://i.ibb.co.com/YLbLTrt/2151155112.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Floral Dreamscape",
+    "img_url": "https://i.ibb.co.com/BPBJjVJ/2151019972.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Abstract Motion",
+    "img_url": "https://i.ibb.co.com/mB5Y52V/1927.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Luminous Depths",
+    "img_url": "https://i.ibb.co.com/t8dNvhq/84031692-22395.jpg"
+  }
+]

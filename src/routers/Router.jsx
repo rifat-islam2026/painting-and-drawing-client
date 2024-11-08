@@ -59,8 +59,7 @@ const router = createBrowserRouter([
                 path: "/update/:id",
                 element: <PrivateRoute><UpdateItem /></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
-            }
-            
+            },
         ]
     },
 ]);

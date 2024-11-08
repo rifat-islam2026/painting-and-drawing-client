@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import CraftCard from "../CraftCard/CraftCard";
+import ModernGallery from "../ModernGallery/ModernGallery";
 import Slider from "../Slider/Slider";
 import SubCategory from "../SubCategory/SubCategory";
 
@@ -16,13 +17,16 @@ function Home() {
 
       {/* craft items section  */}
       <h1 className="text-4xl font-bold py-7 md:px-0 px-5">Craft Items</h1>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5 md:px-0 px-5 mb-10">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10 md:px-0 px-5 mb-10">
         {
           craftItems.slice(0,dataLength).map(craftItem => <CraftCard key={craftItem._id} craftItem={craftItem} />)
         }
       </div>
       {/* subcategory section */}
-      <SubCategory/>
+      <SubCategory />
+
+      {/* Modern Gallery */}
+        <ModernGallery/>
     </div>
   )
 }
