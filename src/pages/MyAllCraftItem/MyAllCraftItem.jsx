@@ -10,7 +10,7 @@ function MyAllCraftItem() {
   const [displayItem, setDisplayItem] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/items/${user?.email}`)
+    fetch(`https://painting-and-drawing-server-phi.vercel.app/items/${user?.email}`)
       .then((res) => res.json())
         .then((data) => {
             setItems(data)

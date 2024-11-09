@@ -37,7 +37,7 @@ function AddItems() {
       },
     };
 
-    fetch("http://localhost:5000/craftItems", {
+    fetch("https://painting-and-drawing-server-phi.vercel.app/craftItems", {
       method: "POST",
       headers: {
         "content-type": "application/json",

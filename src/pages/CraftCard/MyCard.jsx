@@ -24,7 +24,7 @@ function MyCard({ item }) {
     }).then((result) => {
 
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/craftItems/${id}`, {
+        fetch(`https://painting-and-drawing-server-phi.vercel.app/craftItems/${id}`, {
           method: "DELETE"
         })
           .then(res => res.json())

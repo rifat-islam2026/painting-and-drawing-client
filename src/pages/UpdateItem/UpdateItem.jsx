@@ -50,7 +50,7 @@ function UpdateItem() {
             }
         };
 // console.log(updateItem)
-        fetch(`http://localhost:5000/update/${_id}`, {
+        fetch(`https://painting-and-drawing-server-phi.vercel.app/update/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
