@@ -13,11 +13,12 @@ function Home() {
 
   return (
     <div>
+     
       {/* Banner section */}
-      <Slider/>
-
+      <Slider />
+      
       {/* craft items section  */}
-      <h1 className="text-4xl font-bold py-7 md:px-0 px-5">Craft Items</h1>
+      <h1 className="text-4xl font-bold py-7 md:px-0 px-5">Craft Item</h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10 md:px-0 px-5 mb-10">
         {
           craftItems.slice(0,dataLength).map(craftItem => <CraftCard key={craftItem._id} craftItem={craftItem} />)

@@ -8,7 +8,7 @@ function ModernGallery() {
             .then(res => res.json())
             .then(data=>setGallery(data))
     }, [])
-    // console.log(gallery)
+    console.log(gallery)
     return (
         <>
             <h1 className="text-4xl text-center font-bold mt-5">Contempo Art Space</h1>

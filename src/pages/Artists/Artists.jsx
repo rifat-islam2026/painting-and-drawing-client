@@ -8,7 +8,7 @@ function Artists() {
             .then(res => res.json())
             .then(data => setArtists(data))
     }, [])
-
+console.log(artists)
   return (
     <div>
           <h1 className="text-4xl text-center font-bold mt-5">Meet the Artists</h1>
