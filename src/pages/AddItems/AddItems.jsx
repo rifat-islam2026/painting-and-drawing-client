@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -62,6 +63,10 @@ function AddItems() {
 
   return (
     <div className="min-h-screen mb-5">
+      <Helmet>
+        <title>Painting || Add Item</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <h1 className="text-3xl text-center font-bold py-5">Add Craft Items</h1>
       <form
         onSubmit={handelAddItems}

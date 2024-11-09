@@ -1,8 +1,13 @@
+import { Helmet } from "react-helmet"
 import { Link } from "react-router-dom"
 
 const ErrorPage = () => {
     return (
         <section className='bg-white '>
+            <Helmet>
+                <title>Painting || 404 Error</title>
+                <meta name="description" content="Helmet application" />
+            </Helmet>
             <div className='container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12'>
                 <div className='wf-ull lg:w-1/2'>
                     <p className='text-sm font-medium text-gray-500'>404 error</p>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { FaEye } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -8,6 +9,10 @@ const AllArtAndCraftItems = () => {
 
   return (
     <section className="container px-4 mx-auto p-12">
+      <Helmet>
+        <title>Painting || All Craft Item</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="flex items-center gap-x-3">
         <h2 className="text-lg font-medium text-gray-800 ">All craft Items</h2>
 

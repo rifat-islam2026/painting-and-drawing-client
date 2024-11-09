@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -74,6 +75,10 @@ function UpdateItem() {
     };
     return (
         <div className="min-h-screen mb-5">
+            <Helmet>
+                <title>Painting || Update</title>
+                <meta name="description" content="Helmet application" />
+            </Helmet>
             <h1 className="text-3xl text-center font-bold py-5">Update Item: {item.category }</h1>
             <form
                 onSubmit={handelUpdateItem}

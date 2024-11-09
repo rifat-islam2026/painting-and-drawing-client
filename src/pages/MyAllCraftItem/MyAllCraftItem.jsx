@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyCard from "../CraftCard/MyCard";
 
 function MyAllCraftItem() {
     const { user } = useContext(AuthContext) || {};
-    // const loadedData = useLoaderData():
-    // console.log(loadedData)
+ 
   const [items, setItems] = useState([]);
   const [displayItem, setDisplayItem] = useState([]);
 
@@ -62,6 +62,10 @@ function MyAllCraftItem() {
   return (
     <>
       <div className="mt-5">
+        <Helmet>
+          <title>Painting || My Craft List</title>
+          <meta name="description" content="Helmet application" />
+        </Helmet>
         <div className="dropdown dropdown-bottom ">
           <div tabIndex={0} role="button" className="btn m-1">
             Filter

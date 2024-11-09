@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 
 function Login() {
     const { signInUser, signInWithGoogle } = useContext(AuthContext);
-    const [loginError, setLoginError] = useState(null);
     const navigate = useNavigate();
 
     const handelSignInUser = e => {
@@ -14,9 +14,6 @@ function Login() {
         const email = form.email.value;
         const password = form.password.value;
         // console.log(name, email, photo, password);
-
-        // reset error
-        setLoginError('');
 
         // signIn user 
         signInUser(email, password)
@@ -34,7 +31,13 @@ function Login() {
             })
             .catch(error => {
                 console.log(error.message)
-                setLoginError(error.message);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: error.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
     }
     const handelGoogleLogin = () => {
@@ -53,11 +56,22 @@ function Login() {
             })
             .catch(error => {
                 console.log(error.message)
-                setLoginError(error.message);
+                
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: error.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
     }
   return (
       <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>
+          <Helmet>
+              <title>Painting || Login</title>
+              <meta name="description" content="Helmet application" />
+          </Helmet>
           <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg lg:max-w-4xl py-7'>
               <div
                   className='hidden bg-cover bg-center lg:block lg:w-1/2'

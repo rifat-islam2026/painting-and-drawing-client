@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
@@ -8,7 +9,11 @@ function ViewDetails() {
     const { _id, item_name, category, subcategory_name, short_description, price, rating, processing_time, photo_url, customization,} = craftItem;
     console.log(user)
   return (
-    <div>
+      <div>
+          <Helmet>
+              <title>Painting || View Details</title>
+              <meta name="description" content="Helmet application" />
+          </Helmet>
           <h1 className="text-3xl text-center font-bold py-10">View Details</h1>
           <div className="w-2/4 mx-auto mb-10">
               <div className="card card-compact bg-base-100 shadow-xl">

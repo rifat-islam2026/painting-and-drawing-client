@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
@@ -7,6 +8,10 @@ function Profile() {
 
   return (
       <div className="w-[50%] mx-auto p-5 my-20 bg-base-100 rounded-md shadow-lg text-center">
+          <Helmet>
+              <title>Painting || Profile</title>
+              <meta name="description" content="Helmet application" />
+          </Helmet>
           <img className="rounded-full border-2 border-green-600 w-1/3 mx-auto " src={`${user.photoURL}`} />
           <h3 className="text-xl font-bold mb-3">User Name: {user.displayName}</h3>
           <p className="text-sm font-semibold">User Email: {user.email}</p>

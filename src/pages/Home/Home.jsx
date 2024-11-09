@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 import Artists from "../Artists/Artists";
 import CraftCard from "../CraftCard/CraftCard";
@@ -13,7 +14,10 @@ function Home() {
 
   return (
     <div>
-     
+      <Helmet>
+        <title>Painting || Home</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {/* Banner section */}
       <Slider />
       
