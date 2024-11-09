@@ -1,0 +1,56 @@
+[
+  {
+    "artist_id": 101,
+    "name": "Sophia Reynolds",
+    "bio": "Sophia blends urban and natural elements, creating harmonious compositions that speak to modern life’s dualities.",
+    "profile_img_url": "https://i.ibb.co.com/hyzSJKy/3602.jpg",
+    "rating": 4.8,
+    "email": "sophia.reynolds@example.com",
+    "price": 120.0
+  },
+  {
+    "artist_id": 102,
+    "name": "Ethan Wang",
+    "bio": "Ethan captures moments of ethereal beauty through abstract landscapes, inviting viewers into tranquil dreamscapes.",
+    "profile_img_url": "https://i.ibb.co.com/S736NNt/85839.jpg",
+    "rating": 4.6,
+    "email": "ethan.wang@example.com",
+    "price": 95.0
+  },
+  {
+    "artist_id": 103,
+    "name": "Amara Patel",
+    "bio": "With a passion for floral and nature motifs, Amara's work explores the intersection of life and imagination.",
+    "profile_img_url": "https://i.ibb.co.com/2K36Xg8/2150213632.jpg",
+    "rating": 4.7,
+    "email": "amara.patel@example.com",
+    "price": 110.0
+  },
+  {
+    "artist_id": 104,
+    "name": "Liam Foster",
+    "bio": "Known for his dynamic and abstract styles, Liam infuses energy into every piece, exploring movement and color.",
+    "profile_img_url": "https://i.ibb.co.com/wMhK3d6/144527.jpg",
+    "rating": 4.9,
+    "email": "liam.foster@example.com",
+    "price": 130.0
+  },
+  {
+    "artist_id": 105,
+    "name": "Elena Vargas",
+    "bio": "Elena’s creations bring out deep emotional resonance, focusing on light, shadow, and the subtleties of human expression.",
+    "profile_img_url": "https://i.ibb.co.com/TT9z80t/25280.jpg",
+    "rating": 4.5,
+    "email": "elena.vargas@example.com",
+    "price": 100.0
+  },
+  {
+    "artist_id": 106,
+    "name": "Carlos Mendes",
+    "bio": "Carlos's works feature surreal landscapes that challenge perceptions of reality and push creative boundaries.",
+    "profile_img_url": "https://i.ibb.co.com/sJXQ137/2148276436.jpg",
+    "rating": 4.7,
+    "email": "carlos.mendes@example.com",
+    "price": 115.0
+  }
+]

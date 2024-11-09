@@ -30,11 +30,11 @@ function AddItems() {
       processing_time,
       photo_url,
       customization,
-      user:{
+      user: {
         email,
         name: user?.displayName,
-        photo: user?.photoURL
-      }
+        photo: user?.photoURL,
+      },
     };
 
     fetch("http://localhost:5000/craftItems", {
@@ -56,7 +56,7 @@ function AddItems() {
             timer: 1500,
           });
         }
-        navigate('/myCraftItems')
+        navigate("/myCraftItems");
       });
   };
 

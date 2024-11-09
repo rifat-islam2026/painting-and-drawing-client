@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Artists from "../Artists/Artists";
 import CraftCard from "../CraftCard/CraftCard";
 import ModernGallery from "../ModernGallery/ModernGallery";
 import Slider from "../Slider/Slider";
@@ -27,6 +28,9 @@ function Home() {
 
       {/* Modern Gallery */}
         <ModernGallery/>
+
+      {/* Artist */}
+      <Artists/>
     </div>
   )
 }
